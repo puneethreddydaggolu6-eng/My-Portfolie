@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daggolu Puneeth Reddy | Web Developer Intern</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --border: #334155;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        #hero {
+            padding: 160px 0 100px;
+            display: flex;
+            align-items: center;
+            min-height: 90vh;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            background-color: var(--accent-glow);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-secondary);
+            border-color: var(--accent);
+        }
+
+        /* Sections General */
+        section {
+            padding: 90px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Summary / About */
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .skill-category h3 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.35rem;
+            color: var(--text-primary);
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-bullet-list {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-bullet-list li {
+            position: relative;
+            padding-left: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .project-bullet-list li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Experience & Education */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            position: relative;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-role {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .timeline-date {
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .timeline-org {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Extra Details */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .info-list strong {
+            color: var(--text-primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Puneeth<span>.dev</span></a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Open to Web Developer Internships</span>
+                <h1 class="hero-title">Hi, I'm Daggolu Puneeth Reddy</h1>
+                <p class="hero-subtitle">B.Tech Computer Science student passionate about building responsive, user-friendly web interfaces and writing clean code.</p>
+                <div class="hero-location">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    Tirupati, Andhra Pradesh, India
+                </div>
+                <div class="hero-btns">
+                    <a href="mailto:puneethreddydaggolu6@gmail.com" class="btn btn-primary">Get In Touch</a>
+                    <a href="https://linkedin.com/in/puneethreddydaggolu" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn</a>
+                    <a href="https://puneethreddydaggolu.github.io" target="_blank" rel="noopener" class="btn btn-secondary">GitHub Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-card">
+                <p>I am a B.Tech Computer Science and Engineering student with a strong foundation in HTML5, CSS3, Java, Python fundamentals, and SQL. I specialize in building responsive layouts with Flexbox and CSS Grid and hosting web applications via Git/GitHub Pages. With experience as a private tutor, I bring strong problem-solving abilities, adaptability, and clear technical communication skills to development teams.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <div class="tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">Semantic HTML</span>
+                        <span class="tag">Flexbox</span>
+                        <span class="tag">CSS Grid</span>
+                        <span class="tag">Responsive Layouts</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">Python (Fundamentals)</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Databases & Core</h3>
+                    <div class="tags">
+                        <span class="tag">MySQL</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">DBMS</span>
+                        <span class="tag">OOP</span>
+                        <span class="tag">Data Structures & Algorithms</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Workflow</h3>
+                    <div class="tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub</span>
+                        <span class="tag">VS Code</span>
+                        <span class="tag">GitHub Pages</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Project</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Personal Portfolio Website</h3>
+                        <div class="tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Flexbox</span>
+                            <span class="tag">Grid</span>
+                            <span class="tag">GitHub Pages</span>
+                        </div>
+                    </div>
+                    <p class="project-desc">Designed and built a personal web portfolio to highlight technical projects, skills, and academic achievements.</p>
+                    <ul class="project-bullet-list">
+                        <li>Designed and developed a personal portfolio website to present technical skills, projects, and academic background.</li>
+                        <li>Used semantic HTML5 and custom CSS, including Flexbox and Grid, to create a fully responsive page layout.</li>
+                        <li>Published the website using GitHub Pages and utilized Git/GitHub for source code management.</li>
+                    </ul>
+                    <a href="https://puneethreddydaggolu.github.io" target="_blank" rel="noopener" class="btn btn-secondary">View Live Project →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <span class="timeline-role">Private Tutor</span>
+                        <span class="timeline-date">March 2025 – January 2026</span>
+                    </div>
+                    <div class="timeline-org">Remote / Tirupati, India</div>
+                    <ul class="project-bullet-list">
+                        <li>Identified individual learning gaps and prepared focused lesson plans based on student needs.</li>
+                        <li>Explained academic concepts in simple language with structured examples, strengthening communication skills.</li>
+                        <li>Adapted explanations to different learning speeds and worked toward agreed learning goals.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <span class="timeline-role">B.Tech in Computer Science and Engineering</span>
+                        <span class="timeline-date">Expected 2028</span>
+                    </div>
+                    <div class="timeline-org">Annamacharya Institute of Technology and Sciences, Tirupati | CGPA: 8.75/10</div>
+                </div>
+
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <span class="timeline-role">Senior Secondary (Class XII), MPC</span>
+                        <span class="timeline-date">2024</span>
+                    </div>
+                    <div class="timeline-org">Sri Chaitanya Junior College, Tirupati | Score: 90%</div>
+                </div>
+
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <span class="timeline-role">Secondary School Certificate (Class X)</span>
+                        <span class="timeline-date">2022</span>
+                    </div>
+                    <div class="timeline-org">Sri Chaitanya Techno School, Renigunta | Score: 77%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Extras Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Certifications & Information</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Certifications</h3>
+                    <ul class="info-list">
+                        <li><strong>Java Programming Course for Beginners</strong> — ScholarHat (Jan 2026)</li>
+                        <li><strong>HackerRank Badges</strong> — Java (Basic) & SQL (Basic)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>Extracurricular & Technical Content</h3>
+                    <ul class="info-list">
+                        <li>Technical event coordination at college.</li>
+                        <li>Contributed to open-source community documentation.</li>
+                        <li>Authored beginner-friendly coding guides on web dev & Java fundamentals.</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>Languages & Skills</h3>
+                    <ul class="info-list">
+                        <li><strong>English:</strong> Professional Proficiency</li>
+                        <li><strong>Telugu:</strong> Native</li>
+                        <li><strong>Core Strengths:</strong> Problem-solving, teamwork, adaptability, communication</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Daggolu Puneeth Reddy. Built with clean HTML5 & CSS3.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
